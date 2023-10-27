@@ -42,4 +42,10 @@ public class Users {
 
     @Column(name = "id_tipo_documento", nullable = false)
     private int tipoDocumento;
+
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
+
+    @Column(name = "numero_documento", nullable = false)
+    private Long numero_documento;
 }

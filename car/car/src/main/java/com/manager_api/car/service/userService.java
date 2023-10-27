@@ -19,9 +19,15 @@ public class userService {
     private userRepository userRepository;
 
     public boolean create_user_Service(Users user){
+        Users savedUser = null;
         try {
-            Users savedUser = userRepository.save(user);
-            return savedUser != null && savedUser.getId() != null;
+            var exist = userRepository.findByDocument(user.getNumero_documento());
+            if (exist == null){
+                savedUser = userRepository.save(user);
+                return savedUser != null && savedUser.getId() != null;
+            }else{
+                return false;
+            }
         } catch (Exception e) {
             // Maneja la excepción si ocurre un error durante la inserción
             e.printStackTrace();

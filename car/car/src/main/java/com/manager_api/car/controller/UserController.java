@@ -1,5 +1,6 @@
 package com.manager_api.car.controller;
 
+import com.manager_api.car.entitys.ResponseUser;
 import com.manager_api.car.entitys.Users;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,8 +25,17 @@ public class UserController {
 
     @ApiOperation(value = "Crear un nuevo usuario")
     @PostMapping
-    public boolean crearUsuario(@RequestBody Users usuario) {
-        return userCase.create_user(usuario);
+    public ResponseEntity<ResponseUser> crearUsuario(@RequestBody Users usuario) {
+        ResponseUser responseUser = new ResponseUser();
+
+        if (userCase.create_user(usuario)){
+            responseUser.setStatus(200);
+            responseUser.setMessage("Exito");
+        }else {
+            responseUser.setStatus(400);
+            responseUser.setMessage("Fallo");
+        }
+        return ResponseEntity.status(200).body(responseUser);
     }
 
     @ApiOperation(value = "Actualizar un usuario")
