@@ -17,5 +17,11 @@ public interface userRepository extends JpaRepository<Users,Integer> {
     @Query("SELECT u FROM Users u WHERE u.numero_documento =?1 ")
     Users findByDocument(Long document_number);
 
+    @Query("SELECT u.Id FROM Users u ORDER BY u.Id DESC LIMIT 1")
+    Long findLastId();
+
+    @Query("SELECT u FROM Users u WHERE u.email =?1 ")
+    Users findUser(String email);
+
     Optional<Users> findAllById(Long user_id);
 }

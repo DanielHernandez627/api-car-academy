@@ -36,4 +36,13 @@ public class securityPass {
         return encodedString;
     }
 
+    public String decodeToBase64(String cadena){
+        String desencriptada = "";
+
+        Base64.Decoder decoder = Base64.getDecoder();
+
+        byte[] decodifica = decoder.decode(cadena);
+        return desencriptada = new String(decodifica);
+    }
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2023 a las 05:44:47
+-- Tiempo de generación: 13-11-2023 a las 20:23:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -105,7 +105,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `Nombres`, `Apellidos`, `Email`, `Direccion`, `id_rol`, `fecha_nacimiento`, `id_tipo_documento`, `contrasena`, `numero_documento`) VALUES
-(1, 'prueba', 'prueba', 'prueba@prueba.com', 'carrera prueba', 1, '2000-10-26', 1, 'Pruebasinencriptar', 123456789);
+(3, 'daniel', 'cardenas', 'daniel@prueba.com', 'car', 1, '2000-11-13', 1, '', 1234326554);
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +163,7 @@ ALTER TABLE `tipo_documentos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

@@ -1,6 +1,8 @@
 package com.manager_api.car.controller;
 
 import com.manager_api.car.entitys.ResponseUser;
+import com.manager_api.car.entitys.Session;
+import com.manager_api.car.entitys.SessionResponse;
 import com.manager_api.car.entitys.Users;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +38,23 @@ public class UserController {
             responseUser.setMessage("Fallo");
         }
         return ResponseEntity.status(200).body(responseUser);
+    }
+
+    @ApiOperation(value = "Inicio de sesion")
+    @PostMapping(value = "/initsession")
+    public ResponseEntity<SessionResponse> initSession(@RequestBody Session session){
+        SessionResponse sessionResponse = new SessionResponse();
+        Users respuesta = userCase.init_user(session);
+        if (respuesta != null){
+            sessionResponse.setStatus(200);
+            sessionResponse.setMessage("Exito");
+            sessionResponse.setUsers(respuesta);
+        }else{
+            sessionResponse.setStatus(400);
+            sessionResponse.setMessage("Fallo");
+        }
+
+        return ResponseEntity.status(200).body(sessionResponse);
     }
 
     @ApiOperation(value = "Actualizar un usuario")
