@@ -1,22 +1,17 @@
 package com.manager_api.car.controller;
 
 
-import com.manager_api.car.entitys.Authentication;
-import com.manager_api.car.entitys.ResponsePass;
-import com.manager_api.car.entitys.ResponseUser;
-import com.manager_api.car.entitys.Users;
+import com.manager_api.car.entitys.*;
 import com.manager_api.car.usecase.utilitiesCase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -43,5 +38,25 @@ public class utilitiesController {
         }
 
         return ResponseEntity.status(200).body(responsePass);
+    }
+
+    @ApiOperation(value = "Consultar documentos")
+    @GetMapping(value = "/getDocumentos")
+    public ResponseTypeDocument getDocumentos(){
+        ResponseTypeDocument responseTypeDocument = new ResponseTypeDocument();
+
+        List<typeDocument> typeDocuments = utilitiesCase.typeDocuments();
+
+        if (typeDocuments != null){
+            responseTypeDocument.setStatus(200);
+            responseTypeDocument.setMessage("Exito");
+            responseTypeDocument.setTypeDocument(typeDocuments);
+        }else{
+            responseTypeDocument.setStatus(400);
+            responseTypeDocument.setMessage("Fallo");
+            responseTypeDocument.setTypeDocument(null);
+        }
+
+        return responseTypeDocument;
     }
 }

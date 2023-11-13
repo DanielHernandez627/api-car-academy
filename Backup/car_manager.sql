@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2023 a las 20:23:22
+-- Tiempo de generación: 13-11-2023 a las 23:59:01
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -79,7 +79,8 @@ CREATE TABLE `tipo_documentos` (
 --
 
 INSERT INTO `tipo_documentos` (`id`, `nombre`, `sigla`, `estado`) VALUES
-(1, 'Cedula', 'CC', b'1');
+(1, 'Cedula', 'CC', b'1'),
+(2, 'NIT', 'NIT', b'1');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ ALTER TABLE `roles_usuarios`
 -- AUTO_INCREMENT de la tabla `tipo_documentos`
 --
 ALTER TABLE `tipo_documentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

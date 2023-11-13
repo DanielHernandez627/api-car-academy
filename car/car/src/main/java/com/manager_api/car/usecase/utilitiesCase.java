@@ -1,12 +1,14 @@
 package com.manager_api.car.usecase;
 
 
+import com.manager_api.car.entitys.typeDocument;
 import com.manager_api.car.service.utilitiesService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Component
 @AllArgsConstructor
@@ -17,6 +19,10 @@ public class utilitiesCase {
 
     public String hashPass(String Pass) throws NoSuchAlgorithmException {
         return service.encrypt(Pass);
+    }
+
+    public List<typeDocument> typeDocuments(){
+        return service.getDodocuments();
     }
 
 }
