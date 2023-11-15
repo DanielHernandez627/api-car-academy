@@ -76,7 +76,6 @@ public class userService {
                 passexterior = users.getContrasena();
                 pass = securityPass.encrypt(session.getPassword());
                 if (passexterior.equals(pass)){
-                    users.setContrasena("");
                     return users;
                 }else{
                     return null;

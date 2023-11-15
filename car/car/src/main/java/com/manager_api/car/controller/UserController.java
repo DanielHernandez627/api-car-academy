@@ -19,7 +19,6 @@ import java.util.Map;
 @AllArgsConstructor
 @RequestMapping("/api/usuarios")
 @Api(tags = "Usuarios")
-
 public class UserController {
 
     @Autowired
@@ -41,6 +40,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "Inicio de sesion")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(value = "/initsession")
     public ResponseEntity<SessionResponse> initSession(@RequestBody Session session){
         SessionResponse sessionResponse = new SessionResponse();
@@ -48,6 +48,7 @@ public class UserController {
         if (respuesta != null){
             sessionResponse.setStatus(200);
             sessionResponse.setMessage("Exito");
+            respuesta.setContrasena("");
             sessionResponse.setUsers(respuesta);
         }else{
             sessionResponse.setStatus(400);
