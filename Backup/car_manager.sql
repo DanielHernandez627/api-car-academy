@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2023 a las 00:30:33
+-- Tiempo de generación: 21-11-2023 a las 00:32:17
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -139,8 +139,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `Nombres`, `Apellidos`, `Email`, `Direccion`, `id_rol`, `fecha_nacimiento`, `id_tipo_documento`, `contrasena`, `numero_documento`) VALUES
 (5, 'prueba', 'prueba', 'daniel33@gmail.com', 'cr', 1, '2023-11-14', 1, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 1231777),
-(6, 'acdasd', 'acasdc', 'acds@prueba.com', 'casc', 3, '2008-06-16', 1, 'ed8c0457e9e2298a6bfe90bf2347f9d2821be2094b7387a2a84c335fdd748192', 21877321),
-(7, 'Daniel', 'Cardenas', 'danielalejandro627@gmail.com', 'Carrera 11 bis a # 44-20 Sur Este', 1, '2000-06-26', 1, '11571d11050dea812badb3a93a66e3fd1fa9126b4a94692ea3c5e0e8212fea40', 1010007355);
+(6, 'acdasd', 'acasdc', 'acds@prueba.com', 'casc', 3, '2008-06-16', 1, 'ed8c0457e9e2298a6bfe90bf2347f9d2821be2094b7387a2a84c335fdd748192', 21877321);
 
 -- --------------------------------------------------------
 
