@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/api/utilidades")
 @Api(tags = "Utilidades")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class utilitiesController {
 
     @Autowired
@@ -58,5 +59,45 @@ public class utilitiesController {
         }
 
         return responseTypeDocument;
+    }
+
+    @ApiOperation(value = "Consultar Roles")
+    @GetMapping(value = "/getRoles")
+    public ResponseRoles getRoles(){
+        ResponseRoles responseRoles = new ResponseRoles();
+
+        List<Roles> rolesList = utilitiesCase.Roles();
+
+        if (rolesList != null){
+            responseRoles.setStatus(200);
+            responseRoles.setMessage("Exito");
+            responseRoles.setRolesList(rolesList);
+        }else{
+            responseRoles.setStatus(400);
+            responseRoles.setMessage("Fallo");
+            responseRoles.setRolesList(null);
+        }
+
+        return responseRoles;
+    }
+
+    @ApiOperation(value = "Consultar documentos")
+    @GetMapping(value = "/getMarcas")
+    public ResponseBrands getMarcas(){
+        ResponseBrands responseBrands = new ResponseBrands();
+
+        List<Brands> brandsList = utilitiesCase.Brands();
+
+        if (brandsList != null){
+            responseBrands.setStatus(200);
+            responseBrands.setMessage("Exito");
+            responseBrands.setBrandsList(brandsList);
+        }else{
+            responseBrands.setStatus(400);
+            responseBrands.setMessage("Fallo");
+            responseBrands.setBrandsList(null);
+        }
+
+        return responseBrands;
     }
 }

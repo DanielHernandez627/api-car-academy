@@ -19,6 +19,7 @@ import java.util.Map;
 @AllArgsConstructor
 @RequestMapping("/api/usuarios")
 @Api(tags = "Usuarios")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class UserController {
 
     @Autowired
@@ -40,7 +41,6 @@ public class UserController {
     }
 
     @ApiOperation(value = "Inicio de sesion")
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(value = "/initsession")
     public ResponseEntity<SessionResponse> initSession(@RequestBody Session session){
         SessionResponse sessionResponse = new SessionResponse();

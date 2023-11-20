@@ -1,6 +1,8 @@
 package com.manager_api.car.usecase;
 
 
+import com.manager_api.car.entitys.Brands;
+import com.manager_api.car.entitys.Roles;
 import com.manager_api.car.entitys.typeDocument;
 import com.manager_api.car.service.utilitiesService;
 import lombok.AllArgsConstructor;
@@ -25,4 +27,11 @@ public class utilitiesCase {
         return service.getDodocuments();
     }
 
+    public List<Roles> Roles(){
+        return service.getRol();
+    }
+
+    public List<Brands> Brands(){
+        return service.getBrands();
+    }
 }
